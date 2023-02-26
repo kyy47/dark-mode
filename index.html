@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <p id="counter-text" class="info"></p>
+        <h1>Belajar Dark Mode</h1>
+        <h2>FortyS</h2>
+        <nav>
+            <a onclick="resetWindow()" id="home">HOME</a>
+            <a onclick="darkMode()" id="mode">MODE</a>
+        </nav>
+    </div>
+    <script>
+        let counterText = document.getElementById("counter-text")
+        let home = document.getElementById("home")
+        let mode = document.getElementById("mode")
+        let counterDark = 0
+        let limitDark = 5
+        function darkMode(){
+            if(counterDark < limitDark -1){
+                counterDark++
+                counterText.innerText = `Sudah klik ${counterDark}, tersisa ${limitDark - counterDark}` 
+                console.log(`klik dark ${counterDark}`)
+                const body = document.body
+                body.classList.toggle("dark")
+            }else{
+                counterText.innerText = `Jatah Klik Sudah Habis` 
+                home.textContent = "RESTART"
+                mode.style.display = "none"
+            }
+        }
+        function resetWindow(){
+            location.reload()
+        }
+    </script>
+</body>
+</html>
